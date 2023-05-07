@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <title>Document</title>
+    <script>
+        let url='https://mindicador.cl/api';
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => mostrarData(data))
+            .catch(error=>console.log(error))
+        
+        const mostrarData=(data)=>{
+            console.log(data)
+            let body=""
+           
+            document.getElementById('data').innerHTML=body
+        }
+
+    </script>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Ej API Json Users</h2>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Profundidad Magnitud</th>
+                    <th>RefGeografica</th>
+                    <th>RefGeografica</th>
+                    <th>FechaUpdate</th>
+                </tr>
+            </thead>
+            <tbody id="data">
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
