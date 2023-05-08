@@ -6,42 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <title>Document</title>
-    <script>
-        let url='https://mindicador.cl/api';
-
-        fetch(url)
-            .then(response => response.json())
-            .then(data => mostrarData(data))
-            .catch(error=>console.log(error))
-        
-        const mostrarData=(data)=>{
-            console.log(data)
-            let body=""
-           
-            document.getElementById('data').innerHTML=body
-        }
-
-    </script>
+    <script src="js/florero.js"></script>   
 </head>
-<body>
+<body onload="reloj()">
     
-    <div class="container">
-        <h2>Ej API Json Users</h2>
-        
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Fecha</th>
-                    <th>Profundidad Magnitud</th>
-                    <th>RefGeografica</th>
-                    <th>RefGeografica</th>
-                    <th>FechaUpdate</th>
-                </tr>
-            </thead>
-            <tbody id="data">
+    <div id="clockdate">
+        <div class="clockdate-wrapper">
+            <div id="clock"></div>
+            <div id="date"></div>
+        </div>
 
-            </tbody>
-        </table>
     </div>
 </body>
 </html>
