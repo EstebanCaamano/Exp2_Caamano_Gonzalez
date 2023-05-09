@@ -9,8 +9,30 @@
     <link rel="stylesheet" type="text/css" href="css/stylos.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <title>Document</title>
-      
+    <title>Pajaritos</title>
+    <script>
+        let url='https://aves.ninjas.cl/api/birds';
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => mostrarData(data))
+            .catch(error => console.log(error))
+
+        const mostrarData=(data)=>{
+            console.log(data)
+            let body=""
+            for(var i=0; i<10; i++)
+            {
+                
+                body+=`<tr>
+                    <td>${data[i].name.spanish}</td>
+                    <td> <img src="${data[i].images.thumb}"></td>
+                    </tr>`
+                
+            }
+            document.getElementById('data').innerHTML=body
+        }
+    </script>
 </head>
 <body >
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
@@ -34,16 +56,33 @@
                 <li class="nav-item">
                     <a class="nav-link" href="formulario.html">Formulario</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="api.html">Pajaritos</a>
+                </li>
                 
             </ul>
             
         </div>
     </nav>
+    <h1 style="text-align: center;">Centro de ayuda para Pajaritos</h1>
 
+    <div class="container px-4 px-lg-5 mt-5">
+        <h2></h2>
+        <div class="justify-content-center">
+           
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre pajaro</th>
+                        <th>Fotito</th>
+                    </tr>
+                </thead>
+                <tbody id="data">
 
-    <div>
-        
-        
+                </tbody>
+            </table>
+        </div>
     </div>
 
 
@@ -76,6 +115,9 @@
         </div>
         
     </footer>
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+    
 </body>
 </html>
